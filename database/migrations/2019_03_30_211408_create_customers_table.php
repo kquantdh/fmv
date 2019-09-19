@@ -23,10 +23,10 @@ class CreateCustomersTable extends Migration
             $table->string('person');
             $table->float('usd_rate');
             $table->float('jpy_rate');
-            $table->float('normal_hrs');
-            $table->float('night_hrs');
-            $table->float('off_hrs');
-            $table->float('holiday_hrs');
+            $table->float('normal_hrs',12,2);
+            $table->float('night_hrs',12,2);
+            $table->float('off_hrs',12,2);
+            $table->float('holiday_hrs',12,2);
             $table->float('transport_price',12,2);
             $table->float('usd_vnd_rate')->nullable($value=true);
             $table->float('jpy_vnd_rate')->nullable($value=true);

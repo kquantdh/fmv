@@ -335,10 +335,10 @@
                         orderable: false,
                         "render":function (data) {
                             var result=``;
-                            result+=`<button style="width: 70px" class="btn btn-xs green dropdown-toggle" data-toggle="modal" data-target="#large" class="btn btn-primary" href="/hrrm/public/admin/stock/detail/`+data.barcode+`">Show</button>`;
+                            result+=`<button style="width: 70px" class="btn btn-xs green dropdown-toggle" data-toggle="modal" data-target="#large" class="btn btn-primary" href="/fmv/public/admin/stock/detail/`+data.barcode+`">Show</button>`;
                             result+=`<a style="width: 70px" class="btn btn-xs green dropdown-toggle" href="one-barcode/`+data.barcode+`">QRcode</a>`;
-                            result+=`<a style="width: 70px"  class="btn btn-xs green dropdown-toggle"class="btn btn-xs green dropdown-toggle"  data-target="#large" href="/hrrm/public/admin/stock/detail_all/`+data.barcode+`">Show All</a>`;
-                            result+=`<a style="width: 70px"  class="btn btn-xs green dropdown-toggle"class="btn btn-xs green dropdown-toggle"  data-target="#large" href="/hrrm/public/admin/stock/thumbnail/`+data.barcode+`">Thumbnail</a>`;
+                            result+=`<a style="width: 70px"  class="btn btn-xs green dropdown-toggle"class="btn btn-xs green dropdown-toggle"  data-target="#large" href="/fmv/public/admin/stock/detail_all/`+data.barcode+`">Show All</a>`;
+                            result+=`<a style="width: 70px"  class="btn btn-xs green dropdown-toggle"class="btn btn-xs green dropdown-toggle"  data-target="#large" href="/fmv/public/admin/stock/thumbnail/`+data.barcode+`">Thumbnail</a>`;
                             return result;
                         }
                     }

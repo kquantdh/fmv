@@ -419,12 +419,12 @@
                             result+=`<div class="btn-group">`;
                             result+=` <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Actions<i class="fa fa-angle-down"></i></button>`;
                             result+=` <ul class="dropdown-menu pull-left" role="menu">`;
-                            result+=`  <li><a data-toggle="modal" data-target="#large" href="/hrrm/public/admin/out-and-return-stock-detail/detail/`+data.id+`"><i class="fa fa-file-pdf-o"></i> Show </a></li>`;
+                            result+=`  <li><a data-toggle="modal" data-target="#large" href="/fmv/public/admin/out-and-return-stock-detail/detail/`+data.id+`"><i class="fa fa-file-pdf-o"></i> Show </a></li>`;
                             if(data.status == 3){
-                                result+=`  <li><a href="/hrrm/public/getoutstock/`+data.id+`"><i class="fa fa-file-pdf-o"></i> Edit Outstock </a></li>`;
+                                result+=`  <li><a href="/fmv/public/getoutstock/`+data.id+`"><i class="fa fa-file-pdf-o"></i> Edit Outstock </a></li>`;
                             }
-                            result+=` <li><a href="/hrrm/public/admin/outstock/delete/`+data.id+`"><i class="fa fa-file-pdf-o"></i> Delete Outstock </a></li>`;
-                            result+=` <li><a href="/hrrm/public/admin/outstock/out_stock_pdf/`+data.id+`"><i class="fa fa-file-pdf-o"></i> Print Out Stock  </a></li>`;
+                            result+=` <li><a href="/fmv/public/admin/outstock/delete/`+data.id+`"><i class="fa fa-file-pdf-o"></i> Delete Outstock </a></li>`;
+                            result+=` <li><a href="/fmv/public/admin/outstock/out_stock_pdf/`+data.id+`"><i class="fa fa-file-pdf-o"></i> Print Out Stock  </a></li>`;
                             result+=`</ul>`;
                             result+=`</div>`;
                             return result;
