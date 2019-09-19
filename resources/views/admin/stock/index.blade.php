@@ -305,12 +305,12 @@
                             result+=`<div class="btn-group">`;
                             result+=` <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Actions<i class="fa fa-angle-down"></i> </button>`;
                             result+=` <ul class="dropdown-menu pull-left" role="menu">`;
-                            result+=` <li> <a data-toggle="modal" data-target="#large" href="/hrrm/public/admin/stock-modal/detail/`+data.id+`"><i class="fa fa-file-pdf-o"></i> Show </a> </li>`;
+                            result+=` <li> <a data-toggle="modal" data-target="#large" href="/fmv/public/admin/stock-modal/detail/`+data.id+`"><i class="fa fa-file-pdf-o"></i> Show </a> </li>`;
                             result+=` @if (Auth::user()->group_id==1)`;
-                            result+=`<li> <a href="/hrrm/public/getinstock/`+data.id+`"> <i class="fa fa-file-pdf-o"></i> Edit Instock </a></li>`;
-                            result+=` <li> <a  href="/hrrm/public/admin/instock/delete/`+data.id+`" onclick="return confirm('Are you sure to delete totally this instock ?')"><i  class="fa fa-file-pdf-o"></i> Delete Instock </a></li>`;
+                            result+=`<li> <a href="/fmv/public/getinstock/`+data.id+`"> <i class="fa fa-file-pdf-o"></i> Edit Instock </a></li>`;
+                            result+=` <li> <a  href="/fmv/public/admin/instock/delete/`+data.id+`" onclick="return confirm('Are you sure to delete totally this instock ?')"><i  class="fa fa-file-pdf-o"></i> Delete Instock </a></li>`;
                             result+=`@endif`;
-                            result+=`<li><a href="/hrrm/public/admin/barcode/`+data.id+`"> <i class="fa fa-file-pdf-o"></i> Print QRcode1</a></li>`;
+                            result+=`<li><a href="/fmv/public/admin/barcode/`+data.id+`"> <i class="fa fa-file-pdf-o"></i> Print QRcode1</a></li>`;
                             result+=`</ul>`;
                             result+=`</div>`;
                             return result;
