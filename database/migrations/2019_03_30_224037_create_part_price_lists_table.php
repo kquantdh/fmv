@@ -18,7 +18,7 @@ class CreatePartPriceListsTable extends Migration
             $table->string('name');
             $table->text('description')->nullable($value=true);
             $table->text('rep_new')->nullable($value=true);
-            $table->string('machine');
+            $table->string('machine')->nullable($value=true);
             $table->integer('quantity')->nullable($value=true);
             $table->float('price',12,2)->nullable($value=true);
             $table->string('vn_name')->nullable($value=true);
