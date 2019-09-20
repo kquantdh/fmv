@@ -147,7 +147,7 @@
 
                                              <td>
                                                  <select name="order_status" id="staticStatus" class="form-control form-filter input-sm">
-                                                     @foreach(config('constant.status') as $k=>$v)`;
+                                                     @foreach(config('constant.status') as $k=>$v)';
                                                      <option value="{{$k}}">{{$v}} </option>
                                                      @endforeach
                                                      <option value="" selected>Alll </option>
@@ -306,7 +306,7 @@
                         "className":"text-center",
                         "width":"105px",
                         "render":function (data) {
-                            var str = `` + data + ``;
+                            var str = '' + data + '';
                             var pad = 'PR0000';
                             return pad.substring(0, pad.length - str.length) + str;
                         }
@@ -317,7 +317,7 @@
                         "className":"text-center",
                         "width":"90px",
                         "render":function (data) {
-                            d=new Date(``+data+``);
+                            d=new Date(''+data+'');
                             formatted_date = d.getDate() + "-" + (d.getMonth() + 1) + "-" +d.getFullYear() ;
                             return formatted_date;
                         }
@@ -338,7 +338,7 @@
                             }else {
                                 a= new Date();
                                 n = a.getTime();
-                                d=new Date(``+data.out_date+``);
+                                d=new Date(''+data.out_date+'');
                                 m=d.getTime();
                                 x=(n-m)/(24*60*60*1000);
                                 y=data.loan_date_no-Math.round(x);
@@ -386,18 +386,18 @@
                         "width":"105px",
                         orderable: false,
                         "render":function (data) {
-                            var result=``;
-                            result+=`<select name="status" id="status" class="form-control">`;
-                            result+=`@foreach(config('constant.status') as $k=>$v)`;
+                            var result='';
+                            result+='<select name="status" id="status" class="form-control">';
+                            result+='@foreach(config('constant.status') as $k=>$v)';
                             if(data.status=="{{$k}}"){
-                                result+=`<option value="{{$k}}" selected>{{$v}}</option>`;
+                                result+='<option value="{{$k}}" selected>{{$v}}</option>';
                             }
                             else{
-                                result+=`<option value="{{$k}}">{{$v}} </option>`;
+                                result+='<option value="{{$k}}">{{$v}} </option>';
                             }
-                            result+=`@endforeach`;
-                            result+=`</select>`;
-                            result+=`<button class="btn btn-success btn-sm change-status" data-id=` + data.id + `>Apply</button>`;
+                            result+='@endforeach';
+                            result+='</select>';
+                            result+='<button class="btn btn-success btn-sm change-status" data-id=' + data.id + '>Apply</button>';
 
                             return result;
 
@@ -415,18 +415,18 @@
                         "width":"105px",
                         orderable: false,
                         "render":function (data) {
-                            var result=``;
-                            result+=`<div class="btn-group">`;
-                            result+=` <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Actions<i class="fa fa-angle-down"></i></button>`;
-                            result+=` <ul class="dropdown-menu pull-left" role="menu">`;
-                            result+=`  <li><a data-toggle="modal" data-target="#large" href="/fmv/public/admin/out-and-return-stock-detail/detail/`+data.id+`"><i class="fa fa-file-pdf-o"></i> Show </a></li>`;
+                            var result='';
+                            result+='<div class="btn-group">';
+                            result+=' <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Actions<i class="fa fa-angle-down"></i></button>';
+                            result+=' <ul class="dropdown-menu pull-left" role="menu">';
+                            result+='  <li><a data-toggle="modal" data-target="#large" href="/fmv/public/admin/out-and-return-stock-detail/detail/'+data.id+'"><i class="fa fa-file-pdf-o"></i> Show </a></li>';
                             if(data.status == 3){
-                                result+=`  <li><a href="/fmv/public/getoutstock/`+data.id+`"><i class="fa fa-file-pdf-o"></i> Edit Outstock </a></li>`;
+                                result+='  <li><a href="/fmv/public/getoutstock/'+data.id+'"><i class="fa fa-file-pdf-o"></i> Edit Outstock </a></li>';
                             }
-                            result+=` <li><a href="/fmv/public/admin/outstock/delete/`+data.id+`"><i class="fa fa-file-pdf-o"></i> Delete Outstock </a></li>`;
-                            result+=` <li><a href="/fmv/public/admin/outstock/out_stock_pdf/`+data.id+`"><i class="fa fa-file-pdf-o"></i> Print Out Stock  </a></li>`;
-                            result+=`</ul>`;
-                            result+=`</div>`;
+                            result+=' <li><a href="/fmv/public/admin/outstock/delete/'+data.id+'"><i class="fa fa-file-pdf-o"></i> Delete Outstock </a></li>';
+                            result+=' <li><a href="/fmv/public/admin/outstock/out_stock_pdf/'+data.id+'"><i class="fa fa-file-pdf-o"></i> Print Out Stock  </a></li>';
+                            result+='</ul>';
+                            result+='</div>';
                             return result;
 
                         }
@@ -478,13 +478,14 @@
                                 param: param
                             },
                             success: function (result) {
-                               // console.log("success", result)
+                               console.log("success", result)
 
-                               // alert('Change status successfull!');
+                                alert('Change status successfull!');
                                 example.ajax.reload();
                             },
                             error: function (error) {
-                                //console.log("error", error)
+                                console.log("error", error)
+                                alert('Change status fail!');
                             }
                         })
                     }
