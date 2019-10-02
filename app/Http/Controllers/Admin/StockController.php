@@ -260,10 +260,10 @@ class StockController extends Controller
         $list = In_stock_detail::where('in_stock_id', $id)->where('is_deleted',0)->get();
         foreach ($list as $buy){
             Cart::instance('editInstock')->add(array('id' => $buy->part_id,
-                          'name' => $buy->part_price_list->name, 
+                          'name' => $buy->part_name,
                           'qty' =>$buy->qty,
-                          'price' => $buy->part_price_list->price,
-'options' => array( 'description' => $buy->part_price_list->description,
+                          'price' => 1,
+'options' => array( 'description' => 1,
                           'belongto'=>$buy->belongto,
                           'number' => $buy->number,
                           'barcode_delete' => $buy->barcode,

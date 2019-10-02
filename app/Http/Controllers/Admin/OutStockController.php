@@ -37,76 +37,64 @@ class OutStockController extends Controller
     }
     public function  change_status1( Request $request)
     {
-        $id = $request->get('id',0);
-        $data['status'] = $request->get('param');
-        $out_stocks = Out_stock::find($id);
-        $status_old = $out_stocks->status;
-        $out_stocks->status = $data['status'];
-        $out_stock_details = Out_stock_detail::where('out_stock_id', $id)->get();
-        $is_ok=0;
-        foreach ($out_stock_details as $item) {
-            $temp_ = In_stock_detail::where('barcode', $item->barcode)->first();
-            if ($temp_->balance < $item->out_quantity) {
-                $is_ok=1;
+        $response = [];
+        if (Auth::check()) {
+            $id = $request->get('id', 0);
+            $data['status'] = (int)$request->get('param');
+            $out_stocks = Out_stock::find($id);
+            $status_old = $out_stocks->status;
+            $out_stock_details = Out_stock_detail::where('out_stock_id', $id)->get();
+            $is_ok=0;
+            foreach ($out_stock_details as $item){
+                $temp_ = In_stock_detail::where('barcode', $item->barcode)->first();
+                if ($temp_->balance< $item->out_quantity){
+                    $is_ok=1;
+                }
             }
 
-        }
-        $response = [];
-        foreach ($out_stock_details as $item) {
-            if ($out_stocks->status == 4 && $out_stocks->status != $status_old && $status_old!=5&&$is_ok==0) {
-
-                $product = In_stock_detail::where('barcode', $item->barcode)->first();
-                $out_stock_details = Out_stock_detail::where('barcode', $item->barcode)->where('out_stock_id',$out_stocks->id)->first();
-                $product->balance = $product->balance - $item->out_quantity;
-                $out_stock_details->status =$data['status'];
-                $out_stocks = Out_stock::findOrFail($id);
-                if (Auth::check()) {
-                    $out_stocks->user_id = Auth::user()->id;
-                } else {
-                    $out_stocks->user_id = null;
+            if ($data['status']==4 && $is_ok==0&& ($data['status'] - $status_old) == 1) {
+                foreach ($out_stock_details as $item) {
+                    $product = In_stock_detail::where('barcode', $item->barcode)->first();
+                    $out_stock_details1 = Out_stock_detail::where('barcode', $item->barcode)->where('out_stock_id', $out_stocks->id)->first();
+                    $product->balance = $product->balance - $item->out_quantity;
+                    $out_stock_details1->status = $data['status'];
+                    $product->save();
+                    $out_stock_details1->save();
                 }
-
-
+//
                 $out_stocks->status = $data['status'];
-                $product->save();
-                $out_stock_details->save();
                 $out_stocks->save();
+                $response['status'] = 1;
+                $response['message'] = 'Changed to take out successfull!';
 
-
-
-            }elseif($out_stocks->status == 5 && $status_old  ==4 && Auth::user()->group_id==1 &&$out_stocks->type_form!='PR' ){
+            }elseif($data['status']==5 && ($data['status'] - $status_old) == 1 ){
+                foreach ($out_stock_details as $item) {
                 $product = In_stock_detail::where('barcode', $item->barcode)->first();
                 $out_stock_details = Out_stock_detail::where('barcode', $item->barcode)->where('out_stock_id',$out_stocks->id)->first();
                 $product->balance = $product->balance + $item->out_quantity;
                 $out_stock_details->status =5;
-                $out_stocks = Out_stock::findOrFail($id);
-                if (Auth::check()) {
-                    $out_stocks->return_user_id = Auth::user()->id;
-                } else {
-                    $out_stocks->return_user_id = null;
+                $product->save();
+                $out_stock_details->save();
                 }
                 $out_stocks->status = $data['status'];
                 $out_stocks->return_date = date('Y-m-d');
-                $product->save();
-
-                $out_stock_details->save();
                 $out_stocks->save();
+                $response['status'] = 1;
+                $response['message'] = 'Changed to returned successfull!';
 
-
-
-            }else{
-                return redirect()->back()->withErrors('You can not change status. Please check quantity or status or access permission or type form PR!!');
-
+            } else {
+                $response['status'] = -1;
+                $response['message'] = 'Error change status';
             }
+        } else {
+            $response['status'] = -1;
+            $response['message'] = 'Please Log In';
         }
+
         return response()->json($response);
 
-
-
-
-
     }
-    public function change_status($id, Request $request)
+   /*public function change_status($id, Request $request)
     {
 
         $out_stocks = Out_stock::findOrFail($id);
@@ -165,7 +153,7 @@ class OutStockController extends Controller
             }
         }
         return redirect('admin/outstock');
-    }
+    }*/
 
     public function index1(Request $request){
         return view('admin.out_stock.show1');

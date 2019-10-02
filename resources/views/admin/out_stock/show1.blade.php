@@ -387,7 +387,7 @@
                         orderable: false,
                         "render":function (data) {
                             var result='';
-                            result+='<select name="status" id="status" class="form-control">';
+                            result+='<select name="status" id="status-'+data.id+'" class="form-control">';
                             result+='@foreach(config('constant.status') as $k=>$v)';
                             if(data.status=="{{$k}}"){
                                 result+='<option value="{{$k}}" selected>{{$v}}</option>';
@@ -453,20 +453,21 @@
                 $("#staticUserReturn").val("");
                 $("#staticPartOutNo").val("");
                 $("#staticCustomer").val("");
-                $("#staticCustomer").val("");
+
                 $("#staticTypeForm").val("");
 
 
             })
                $(document).on('click', '.change-status', function () {
                      var id = $(this).data('id');
-                    var param = $('#status option:selected').map(function() {return this.value;
-                    }).get().join(",");
-                    console.log(this.value)
-                    if (param=='') {
-                        alert(' you can not change status!');
-                        return;
-                    }
+                     var status = $('#status-'+id+' option:selected').val();
+//                    var param = $('#status option:selected').map(function() {return this.value;
+//                    }).get().join(",");
+//                    console.log(this.value);
+//                    if (param=='') {
+//                        alert(' you can not change status!');
+//                        return;
+//                    }
 
                     var check = confirm("Are you sure to change status?");
                     if (check == true) {
@@ -475,20 +476,19 @@
                             type: 'post',
                             data: {
                                 id: id,
-                                param: param
+                                param: status
                             },
                             success: function (result) {
-                               console.log("success", result)
-
-                                alert('Change status successfull!');
+                                alert(result.message);
                                 example.ajax.reload();
                             },
                             error: function (error) {
-                                console.log("error", error)
+                                console.log("error", error);
                                 alert('Change status fail!');
                             }
                         })
                     }
+
 
 
                 });

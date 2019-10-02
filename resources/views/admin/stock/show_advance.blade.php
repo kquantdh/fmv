@@ -320,7 +320,7 @@
                         "className":"text-center",
                         orderable: false,
                         "render":function (data) {
-                            return `<img width="80px"  height="80px" alt="No Image" src="../uploads/product/`+data+`"/>`;
+                            return '<img width="80px"  height="80px" alt="No Image" src="../uploads/product/'+data+'"/>';
                         }
                     },
                     {
@@ -334,11 +334,11 @@
                         "width":"105px",
                         orderable: false,
                         "render":function (data) {
-                            var result=``;
-                            result+=`<button style="width: 70px" class="btn btn-xs green dropdown-toggle" data-toggle="modal" data-target="#large" class="btn btn-primary" href="/fmv/public/admin/stock/detail/`+data.barcode+`">Show</button>`;
-                            result+=`<a style="width: 70px" class="btn btn-xs green dropdown-toggle" href="one-barcode/`+data.barcode+`">QRcode</a>`;
-                            result+=`<a style="width: 70px"  class="btn btn-xs green dropdown-toggle"class="btn btn-xs green dropdown-toggle"  data-target="#large" href="/fmv/public/admin/stock/detail_all/`+data.barcode+`">Show All</a>`;
-                            result+=`<a style="width: 70px"  class="btn btn-xs green dropdown-toggle"class="btn btn-xs green dropdown-toggle"  data-target="#large" href="/fmv/public/admin/stock/thumbnail/`+data.barcode+`">Thumbnail</a>`;
+                            var result='';
+                            result+='<button style="width: 70px" class="btn btn-xs green dropdown-toggle" data-toggle="modal" data-target="#large" class="btn btn-primary" href="/fmv/public/admin/stock/detail/'+data.barcode+'">Show</button>';
+                            result+='<a style="width: 70px" class="btn btn-xs green dropdown-toggle" href="one-barcode/'+data.barcode+'">QRcode</a>';
+                            result+='<a style="width: 70px"  class="btn btn-xs green dropdown-toggle"class="btn btn-xs green dropdown-toggle"  data-target="#large" href="/fmv/public/admin/stock/detail_all/'+data.barcode+'">Show All</a>';
+                            result+='<a style="width: 70px"  class="btn btn-xs green dropdown-toggle"class="btn btn-xs green dropdown-toggle"  data-target="#large" href="/fmv/public/admin/stock/thumbnail/'+data.barcode+'">Thumbnail</a>';
                             return result;
                         }
                     }
