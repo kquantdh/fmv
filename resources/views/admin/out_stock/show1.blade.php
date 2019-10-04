@@ -461,14 +461,6 @@
                $(document).on('click', '.change-status', function () {
                      var id = $(this).data('id');
                      var status = $('#status-'+id+' option:selected').val();
-//                    var param = $('#status option:selected').map(function() {return this.value;
-//                    }).get().join(",");
-//                    console.log(this.value);
-//                    if (param=='') {
-//                        alert(' you can not change status!');
-//                        return;
-//                    }
-
                     var check = confirm("Are you sure to change status?");
                     if (check == true) {
                         $.ajax({

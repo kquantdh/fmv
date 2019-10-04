@@ -184,6 +184,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Milon\Barcode\BarcodeServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
 
     ],
 

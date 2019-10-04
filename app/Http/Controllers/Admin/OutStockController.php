@@ -61,8 +61,9 @@ class OutStockController extends Controller
                     $product->save();
                     $out_stock_details1->save();
                 }
-//
+
                 $out_stocks->status = $data['status'];
+                $out_stocks->user_id = Auth::user()->id;
                 $out_stocks->save();
                 $response['status'] = 1;
                 $response['message'] = 'Changed to take out successfull!';
@@ -78,6 +79,7 @@ class OutStockController extends Controller
                 }
                 $out_stocks->status = $data['status'];
                 $out_stocks->return_date = date('Y-m-d');
+                $out_stocks->return_user_id = Auth::user()->id;
                 $out_stocks->save();
                 $response['status'] = 1;
                 $response['message'] = 'Changed to returned successfull!';
