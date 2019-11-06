@@ -152,10 +152,10 @@ class StockController extends Controller
     {
 
         $part_price_lists=Part_price_list::select('part_price_lists.*')
-                        ->where('part_price_lists.id','like','%'.$request->keyword.'%')
-                        ->orwhere('part_price_lists.name','like','%'.$request->keyword.'%')
+                        ->where('part_price_lists.id','like','%'.$request->keyword.'%');
+                        /*->orwhere('part_price_lists.name','like','%'.$request->keyword.'%')
                         ->orwhere('part_price_lists.rep_new','like','%'.$request->keyword.'%')
-                        ->orwhere('part_price_lists.description','like','%'.$request->keyword.'%');
+                        ->orwhere('part_price_lists.description','like','%'.$request->keyword.'%');*/
         $part_price_lists=$part_price_lists->orderBy('id', 'DESC')->paginate(5);
         $part_price_lists->appends(array('keyword' =>$request->keyword));
         return view('admin.stock.create',['part_price_lists'=>$part_price_lists]);
