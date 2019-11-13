@@ -147,8 +147,8 @@
 @endsection
 @section('script')
     <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('js/dataTables.bootstrap.min.js')}}"></script>
-    <script src="{{asset('js/bootstrap.js')}}" type="text/javascript"></script>
+    {{--1<script src="{{asset('js/dataTables.bootstrap.min.js')}}"></script>--}}
+    {{--1<script src="{{asset('js/bootstrap.js')}}" type="text/javascript"></script>--}}
     <script src="{{asset('js/bootstrap-modalmanager.js')}}" type="text/javascript"></script>
     <script src="{{asset('js/bootstrap-modal.js')}}" type="text/javascript"></script>
 
