@@ -26,7 +26,7 @@
 <link href="{{ asset('css/daterangepicker.min.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('css/bootstrap-datepicker3.min.css') }}" rel="stylesheet" type="text/css" />
 <!--1 <link href="{{ asset('css/bootstrap-timepicker.min.css') }}" rel="stylesheet" type="text/css" />-->
-<link href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet" type="text/css" />
+<!--1<link href="{{ asset('css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet" type="text/css" />-->
 <!--1<link href="{{ asset('css/clockface.css') }}" rel="stylesheet" type="text/css" />-->
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN MODAL -->

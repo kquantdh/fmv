@@ -16,9 +16,9 @@ class In_stock_detail extends Model
     }
     public static function searchAndList($partNo,$part_name,$belongto,$barcode,$location,$balance,$inv_no,$po_no,$detail_stk,$compare,$start, $length,$column, $sort)
     {
+
         $query = In_stock_detail::select('*')
             ->join('in_stocks','in_stock_details.in_stock_id','=','in_stocks.id')
-            ->join('part_price_lists','in_stock_details.part_id','=','part_price_lists.id')
             ->where('in_stock_details.is_deleted', '=',0);
 
         if(!empty($partNo)) {
