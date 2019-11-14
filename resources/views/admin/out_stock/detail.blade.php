@@ -7,9 +7,7 @@
                 <th> Part out No</th>
                 <th> User out</th>
                 <th > Part No </th>
-                
                 <th > Barcode </th>
-               
                 <th > Out Qty </th>
             </tr>
             </thead>

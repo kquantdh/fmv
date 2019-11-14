@@ -31,7 +31,7 @@
 <!-- END THEME LAYOUT SCRIPTS -->
 
 <!-- BEGIN MODAL -->
-<!--1<script src="{{asset('js/bootstrap.js')}}" type="text/javascript"></script>-->
+<script src="{{asset('js/bootstrap.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/bootstrap-modalmanager.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/bootstrap-modal.js')}}" type="text/javascript"></script>
 

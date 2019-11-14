@@ -214,19 +214,9 @@ class OutStockController extends Controller
                                 ->join('out_stocks','out_stock_details.out_stock_id','=','out_stocks.id');
                                 $out_stock_details->where('out_stock_details.barcode',$id);
                                 $out_stock_details->where('out_stock_details.status',4);
-
-
-
-
         $out_stock_details=$out_stock_details->orderBy('id', 'DESC')->paginate(10);
-
-
-        
         return view('admin.out_stock.detail',
-            ['out_stock_details'=>$out_stock_details,
-
-            
-                ]);
+            ['out_stock_details'=>$out_stock_details]);
     }
     public function detailAll($id ,Request $request)
     {
